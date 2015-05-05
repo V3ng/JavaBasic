@@ -1,0 +1,21 @@
+LEVEL 1
+
+Class  ACCOUNT
+
+-	accountValue;
+-	receiveMoney;
+-	sendMoney;
+-	takeCash;
+
+
+
+Class CUSTOMER
+-	name;
+-	createAccount;
+-	putMoneyOnAccount;
+-	takeCredit;
+-	payCredit;
+-	orderToSendingMoney;
+-	orderToTakingCash;
+-	orderAccountStatus;
+

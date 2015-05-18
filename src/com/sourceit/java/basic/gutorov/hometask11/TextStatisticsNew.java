@@ -20,6 +20,7 @@ public class TextStatisticsNew extends TextStatistics{
 		System.out.println("Frequency of " + letter + " " + text.getCharFrequency(letter) + "%");  
 		System.out.println("Char count of "+ letter + " " + text.getCharCount(letter));
 		System.out.println(text.words());
+		text.words();
 	}
 	
 	
@@ -60,21 +61,32 @@ public class TextStatisticsNew extends TextStatistics{
 
 	@Override
 	public Map<String, Integer> getChars() {
-		Map <Character, Integer> map = new TreeMap <> ();
+		String s = null;
+		Map<String, Integer> map = new TreeMap <> ();
 		char [] arrOfChars = getCurrentText().toCharArray();
 		for (int i = 0; i < arrOfChars.length; ++i){
 			char c = arrOfChars[i];
 			if (map.containsKey(c)){
-				map.put(c, map.get(c)+1);
+				s = toString(c);  
+				System.out.println(s);//Needed Char2String
+				map.put(s, map.get(s)+1);
 			}
-			map.put (c, 1);
+			map.put (s, 1);
+
 		}
-		return map ;          //Can`t correctly return this map 
+		return map ;         
+	}
+
+	private String toString(char c) {
+		
+		String s = toString(c) ;
+		return s;
+		
 	}
 
 	@Override
 	public List<String> words() {
-		String t = null;
+		String t = " ";
 		char [] arrOfChars = getText().toCharArray();
 		ArrayList <String> myList = new ArrayList<String>();
 		for (int i = 0; i < arrOfChars.length; ++i){
@@ -84,7 +96,7 @@ public class TextStatisticsNew extends TextStatistics{
 				t = (t + c);}
 			myList.add(t);
 			System.out.println(t);
-			t = null;
+			t = "";
 			
 
 		}

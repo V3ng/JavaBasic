@@ -1,0 +1,32 @@
+1. For each of the following four tasks, specify which of the Java Collections member is best suited, and explain how to use it 
+to implement the task. (You do not need to write any code. Just give an idea of how you would use the component to solve the problem.
+ Or you could implement your idea.) 
+- Whimsical Toys Inc (WTI) needs to record the names of all its employees. Every month, an employee will be chosen at random
+ from these records to receive a free toy. 
+- WTI has decided that each new product will be named after an employee – but only first names will be used, and each name will be used
+ only once. Prepare a list of unique first names. 
+- WTI decides that it only wants to use the most popular names for its toys. Count the number of employees who have each first name.
+- WTI acquires season tickets for the local lacrosse team, to be shared by employees. Create a waiting list for this popular sport.
+
+ 2. For each of the four tasks above, specify which of the Java Collections Framework interfaces is best suited, and explain any
+  differences in how you would use it compared to the Java Collections component you chose to handle the task.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+-	    List & Random. 
+
+We need all employers & randomize one(some?) from this list to receiving a toy 
+
+-       Set.remove ()
+
+ According to unique first names we will use set collection & removing it after using
+ 
+-       HashMap (Key = firstName, Value = count)
+
+sorting by value needed – it will be most popular names in WTI
+
+-       Queue.remove()
+
+FIFO with removing first elements 
+

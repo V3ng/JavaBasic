@@ -33,7 +33,7 @@ public class Launcher {
 		}
 		
 		try {
-			if (args.length == 3)
+			if (args.length == 3 && secondPar > firstPar )
 				secondPar = Integer.parseInt(args[2]);
 				else secondPar = (text.length()-1);	
 		}

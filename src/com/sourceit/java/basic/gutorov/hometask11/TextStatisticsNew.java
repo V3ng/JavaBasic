@@ -15,13 +15,6 @@ public abstract class TextStatisticsNew extends TextStatistics{
 	}
 	
 	public static void main (String [] args){
-		//TextStatisticsNew text = new TextStatisticsNew("Buddy you're a boy make a big noise Playin' in the street gonna be a big man some day You got mud on yo' face ");
-//	
-//		System.out.println(text.getText());
-//		System.out.println("Frequency of " + " " + text.getCharFrequency() + "%");  
-//		System.out.println("Char count of "+ letter + " " + text.getCharCount(letter));
-//		System.out.println(text.words());
-//		text.words();
 	}
 	
 	
@@ -45,7 +38,7 @@ public abstract class TextStatisticsNew extends TextStatistics{
 			if (arrOfChars[i] == c) {
 				++counter;
 			}
-			else {System.out.println("Incoorrect data");
+			else {System.out.println("Incorrect data");
 	    	break;
 		}	
 		}

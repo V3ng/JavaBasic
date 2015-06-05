@@ -1,88 +1,72 @@
 package com.sourceit.java.basic.gutorov.hometask11;
 
+
+import com.sourceit.java.basic.Lesson11.TextStatistics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class TextStatisticsNew extends TextStatistics{
+public abstract class TextStatisticsNew extends TextStatistics{
+	//private static String text;
 
 	public TextStatisticsNew(String text) {
 		super(text);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public static void main (String [] args){
-		TextStatisticsNew text = new TextStatisticsNew("Buddy you're a boy make a big noise Playin' in the street gonna be a big man some day You got mud on yo' face ");
-	
-		char letter = 'b';
-		System.out.println(text.getCurrentText());
-		System.out.println("Frequency of " + letter + " " + text.getCharFrequency(letter) + "%");  
-		System.out.println("Char count of "+ letter + " " + text.getCharCount(letter));
-		System.out.println(text.words());
-		text.words();
+		//TextStatisticsNew text = new TextStatisticsNew("Buddy you're a boy make a big noise Playin' in the street gonna be a big man some day You got mud on yo' face ");
+//	
+//		System.out.println(text.getText());
+//		System.out.println("Frequency of " + " " + text.getCharFrequency() + "%");  
+//		System.out.println("Char count of "+ letter + " " + text.getCharCount(letter));
+//		System.out.println(text.words());
+//		text.words();
 	}
 	
 	
-	private String getCurrentText() {
-				String result = getText().toLowerCase();
-				result.replaceAll("^[a-z]+", "");
-				return result;
+	public String getText(String text) {
+				return text;
 			}
 
 	@Override
 	public int getCharFrequency(char c) {
-		char [] arrOfChars = getCurrentText().toCharArray();
-		//System.out.println(arrOfChars.length);
-		int counter =0;         // Counter of char
-		int freq = 0;               // Frequency of char
-		for (int i = 0; i < arrOfChars.length; ++i){
-			
-			if (arrOfChars[i] == c) {
-				++counter;
-			}
-		}
-		//System.out.println(counter);
-		freq = (counter*100/arrOfChars.length);
-		return freq;
+		char [] arrOfChars = getText().toCharArray();
+		int counter = getCharCount(c);    
+		return (counter*100)/arrOfChars.length;
 	}
 
 	@Override
 	public int getCharCount(char c) {
-		char [] arrOfChars = getCurrentText().toCharArray();
+		char [] arrOfChars = getText().toCharArray();
 		int counter =0;
+		if (arrOfChars.length >0) {
 		for (int i = 0; i < arrOfChars.length; ++i){
 			if (arrOfChars[i] == c) {
 				++counter;
 			}
+			else {System.out.println("Incoorrect data");
+	    	break;
+		}	
+		}
 		}
 		return counter;
 	}
 
 	@Override
-	public Map<String, Integer> getChars() {
-		String s = null;
-		Map<String, Integer> map = new TreeMap <> ();
-		char [] arrOfChars = getCurrentText().toCharArray();
+	public Map<Character, Integer> getChars() {
+		Map<Character, Integer> map = new TreeMap <> ();
+		char [] arrOfChars = getText().toCharArray();
 		for (int i = 0; i < arrOfChars.length; ++i){
 			char c = arrOfChars[i];
 			if (map.containsKey(c)){
-				s = toString(c);  
-				System.out.println(s);//Needed Char2String
-				map.put(s, map.get(s)+1);
+				map.put(c, map.get(c)+1);
 			}
-			map.put (s, 1);
-
+			map.put (c, 1);
 		}
 		return map ;         
 	}
 
-	private String toString(char c) {
-		
-		String s = toString(c) ;
-		return s;
-		
-	}
 
 	@Override
 	public List<String> words() {
@@ -97,7 +81,6 @@ public class TextStatisticsNew extends TextStatistics{
 			myList.add(t);
 			System.out.println(t);
 			t = "";
-			
 
 		}
 		return myList;
@@ -116,9 +99,10 @@ public class TextStatisticsNew extends TextStatistics{
 	}
 
 	@Override
-	public char getCharByCount(int count) {
-		// TODO Auto-generated method stub
-		return 0;
+	public char[] getCharByCount(int count) {
+		return null;
 	}
 
 }
+
+

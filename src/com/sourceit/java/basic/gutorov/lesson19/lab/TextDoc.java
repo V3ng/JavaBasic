@@ -39,7 +39,7 @@ public class TextDoc {
 		while ((l = inputStream.readLine())!= null)
 			 if (l.contains("http://")){
 		        	httpArr = l.split("http://");
-		        	String[] a = httpArr[1].split("\"");
+		        	String[] a = httpArr[1].split("\"");     //TODO more correct split
 		        	System.out.println("http://" + a[0]);
 	         }
     	}

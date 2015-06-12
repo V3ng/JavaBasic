@@ -14,10 +14,11 @@ import java.util.List;
 
 public class WGet {
 	
-	public static final String[] COMMANDS = {"Save page", "Display title", "Find a word", "List all URL's on the page"};
+	public static final String[] COMMANDS = {"Web server available", "Save page", "Display title", "Find a word", "List all URL's on the page"};
 
 
 	
+
 	public static void main(String[] args) throws Exception {
 		
 		 URL url = null;
@@ -28,19 +29,40 @@ public class WGet {
 		    PrintWriter out = null;
 		    String title;
 		    String[] httpArr = null;
+			String currentURL = "";  
 		    
 		    
+			System.out.println("Hi");
+			
+			if (args.length ==0){
+				System.out.println(getInstruction());
+				return;
+			}
+			
+			
+//			String command = url.toString();
+	    		String command = args[0];
+
+				if("-i".equals(command)){
+					//TODO ask for URL
+					System.out.println("Enter an URL:");
+			} else if(!command.startsWith("http")){
+				System.out.println(getInstruction());
+				return;	
+			}else currentURL = command;
+				  url = new URL( currentURL);
+			
+			
+
 
 	        
 	        
 		    try {
-		        url = new URL("http://vk.com/mnml_techno_music");
 		        is = url.openStream();
 		        br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		        out = new PrintWriter(new FileWriter("Output.txt"));
 		        
 		        while ((line = br.readLine()) != null) {
-//		            System.out.println(line);
 			         out.println(line);
 			         if (line.contains("<title>")){
 			        	title = line;
@@ -56,7 +78,7 @@ public class WGet {
 		        }
 
 		    }catch(Exception ex){
-		    	System.out.println("Smth. wrong" + ex);
+		    	System.out.println("Smth. wrong  " + ex);
 		    } finally {
 		    	if (is != null){
 		    		try {
@@ -67,50 +89,45 @@ public class WGet {
 				List<String> q = Arrays.asList(httpArr);
 				for (String l:q){
 					System.out.println(l);
-				}    	
-		System.out.println("Hi");
-		
-		if (args.length ==0){
-			System.out.println(getInstruction());
-			return;
-		}
-		
-		
-		String command = url.toString();
-//			String command = args[0];
-			String currentURL;
-			if("-i".equals(command)){
-				//TODO ask for URL
-				System.out.println("Enter an URL:");
-		} else if(!command.startsWith("http")){
-			System.out.println(getInstruction());
-			return;	
-		}else currentURL = command;
-		}
-		
-		System.out.println("Select what to do next:");
-		for(int i = 0; i < COMMANDS.length; i++){
-			System.out.println((i+1) + ") " + COMMANDS[i]);
-		}
-		
-		int choise = -1;
-		//TODO ask for input
-		choise = Integer.parseInt(args[0]);
-		
-		
-		executeCommand(choise);
-		TextDoc.displayTitle();
-		TextDoc.savePage();
-        TextDoc.showHttp();
+				}
+		    }
+		    
+			System.out.println("Select what to do next:");
+			for(int i = 0; i < COMMANDS.length; i++){
+				System.out.println((i+1) + ") " + COMMANDS[i]);
+			}
+//----------temp data, still needed--------------------
+//			TextDoc.displayTitle();
+//			TextDoc.savePage();
+//	        TextDoc.showHttp();
+//------------------------------------------------------			
+			int choise = -1;
+
+			br = new BufferedReader(new InputStreamReader(System.in));
+			choise = Integer.parseInt(br.readLine());
+			
+
+			executeCommand(choise);
+
+
 }
 	
 		private static void executeCommand(int commandNumber) throws Exception{
 			switch (commandNumber) {
 			case 1:
-				TextDoc.savePage();
+				System.out.println("Temporary unavailable. Sorry =( ");
 				break;
 			case 2:
-				System.out.println();
+				TextDoc.savePage();
+				break;
+			case 3:
+				TextDoc.displayTitle();
+				break;
+			case 4:
+				System.out.println("Temporary unavailable. Sorry =( ");
+				break;
+			case 5:
+				TextDoc.showHttp();
 				break;
 			default:
 				break;

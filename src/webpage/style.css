@@ -1,0 +1,25 @@
+body {
+	background-color: #F0F8FF;
+	padding: 50px 50px 50px 50px;
+}
+
+.Yellow{
+
+background-color:#FFF8DC;
+color: #000000;
+}
+
+
+
+.btn-primary {
+	width: 100%
+}
+
+.Green{
+background-color:#006400;
+color: #FFFFFF
+}
+
+.Gray{
+background-color:#DCDCDC;
+}
